@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+<title>MyApp - Policias</title>
+{% endblock titulo %}
+
+{% block contenido %}
+<h1 style="color:blue;">
+  Los policias en Avellaneda son:
+</h1>
+<a href="{% url 'crear-policia' %}">Inscribir policia</a>
+<br><br>
+<h3><ul>
+{% for policia in policias %}
+  <li>
+    {{ policia.apellido }}, {{ policia.nombre }}
+  </li>
+{% endfor %}
+</ul>
+{% endblock contenido %}
+</h3>

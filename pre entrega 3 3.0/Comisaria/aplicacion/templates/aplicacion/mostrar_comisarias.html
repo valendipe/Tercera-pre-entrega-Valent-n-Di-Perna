@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+<title>MyApp - Comisarias</title>
+{% endblock titulo %}
+
+{% block contenido %}
+<h1 style="color:blue;">
+  Las comisarias en Avellaneda son:
+</h1>
+<a href="{% url 'mostrar_comisarias' %}">Ver todos</a>
+<a href="{% url 'crear-comisaria' %}">Crear comisaria</a>
+<br><br>
+<form action="{% url 'buscar-comisaria' %}" method="post">
+  {% csrf_token %}
+  <input type="text" name="busqueda">
+  <input type="submit" value="Buscar">
+</form>
+<br>
+<h3><ul>
+{% for comisaria in comisarias %}
+  <li>
+    {{ comisaria.nombre }}, {{ comisaria.numero }}
+  </li>
+{% endfor %}
+</ul>
+{% endblock contenido %}
+</h3>

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+
+{% block titulo%}
+Crea una nueva comisaria:
+{% endblock titulo%}
+
+
+{% block contenido %}
+
+<form method="post">
+
+ {% csrf_token %}
+
+ {{ formulario.as_p }}
+
+ <input class="btn btn-success" type="submit" value="Crear" />
+ 
+</form>
+
+<br><br>
+<a href="{% url "mostrar_comisarias" %}">Volver</a>
+
+{% endblock contenido %}
